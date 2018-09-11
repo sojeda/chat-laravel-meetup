@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'MessageController@index');
+Route::get('/messages', 'MessageController@fetch')->middleware('auth');
+Route::post('/messages', 'MessageController@sentMessage')->middleware('auth');
