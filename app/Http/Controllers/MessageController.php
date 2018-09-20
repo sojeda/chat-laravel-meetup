@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
+    public function index()
+    {
+        return view('chat');
+    }
+
     public function fetch()
     {
         return Message::with('user')->get();
