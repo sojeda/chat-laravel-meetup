@@ -21,6 +21,6 @@ Auth::routes();
 
 Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/chat', [MessageController::class, 'index'])->middleware('auth');
+Route::get('/chat', [MessageController::class, 'index'])->middleware('auth')->name('chat.index');
 Route::get('/messages', [MessageController::class, 'fetch'])->middleware('auth');
 Route::post('/messages', [MessageController::class, 'sentMessage'])->middleware('auth');
