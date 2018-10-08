@@ -21,11 +21,11 @@ class MessageController extends Controller
 
     public function sentMessage(Request $request)
     {
-        $user = Auth::user();
+        $user = auth()->user();
 
         $message = Message::create([
-            'message' => $request->message,
-            'user_id' => Auth::user()->id,
+            'message' => $request->get('message'),
+            'user_id' => $user->id,
         ]);
 
         broadcast(new MessageSentEvent($user, $message))->toOthers();

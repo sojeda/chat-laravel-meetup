@@ -14030,6 +14030,7 @@ var app = new Vue({
                 message: e.message.message,
                 user: e.user
             });
+            console.log('Mensaje recibido');
         });
     },
 
@@ -14037,7 +14038,7 @@ var app = new Vue({
         addMessage: function addMessage(message) {
             this.messages.push(message);
             axios.post('/messages', message).then(function (response) {
-                //console.log(response)
+                console.log(response);
             });
         },
         fetchMessages: function fetchMessages() {
@@ -14111,8 +14112,8 @@ window.Pusher = __webpack_require__(38);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: "",
-  cluster: "",
+  key: "f533ce58209805280446",
+  cluster: "us2",
   encrypted: true
 });
 
